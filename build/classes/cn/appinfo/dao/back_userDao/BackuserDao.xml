@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfo.dao.back_userDao.BackuserDao">
+   		<select id="BackuserShow" resultMap="BackUserShow">
+   			select u.*,d.valueName from backend_user u,data_dictionary d 
+   			WHERE u.userType = d.id AND userCode = #{userCode} AND userPassword = #{userPassword}
+   		</select>
+   		<resultMap type="BackendUser" id="BackUserShow">
+   			<result property="userTypeName" column="valueName"/>
+   		</resultMap>
+</mapper>
